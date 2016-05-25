@@ -16,7 +16,8 @@
         android:text="DatePicker Dialog"
         android:id="@+id/buttonDatePicker"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="dialogDatePicker"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -25,6 +26,17 @@
         android:id="@+id/buttonTimePicker"
         android:layout_below="@+id/buttonDatePicker"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_above="@+id/buttonTimePicker"
+        android:layout_toLeftOf="@+id/buttonDatePicker"
+        android:layout_toStartOf="@+id/buttonDatePicker"
+        android:hint="생년월일"
+        android:focusable="false"
+        android:enabled="false" />
 
 
 </RelativeLayout>
