@@ -46,14 +46,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        findViewById(R.id.)
+        findViewById(R.id.textView_time_start).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TimePickerActivity.class);
+                startActivityForResult(intent, REQUEST_CODE_BEGIN_TIME);
+            }
+        });
+
+        findViewById(R.id.textView_time_end).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TimePickerActivity.class);
+                startActivityForResult(intent, REQUEST_CODE_END_TIME);
+            }
+        });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
-
-        System.out.println(requestCode + ":" + resultCode);
 
         if (resultCode != Activity.RESULT_OK) {
             Log.d("MainActivity", "resultCode:" + resultCode);
@@ -73,6 +85,18 @@ public class MainActivity extends AppCompatActivity {
 
             TextView textView = (TextView)findViewById(R.id.textView_end);
             textView.setText(year + "-" + month + "-" + date);
+        } else if (requestCode == REQUEST_CODE_BEGIN_TIME) {
+            int hour = intent.getIntExtra("hour", -1);
+            int minute = intent.getIntExtra("minute", -1);
+
+            TextView textView = (TextView)findViewById(R.id.textView_time_start);
+            textView.setText(hour + "시 " + minute + "분");
+        } else if (requestCode == REQUEST_CODE_END_TIME) {
+            int hour = intent.getIntExtra("hour", -1);
+            int minute = intent.getIntExtra("minute", -1);
+
+            TextView textView = (TextView)findViewById(R.id.textView_time_end);
+            textView.setText(hour + "시 " + minute + "분");
         }
     }
 
@@ -100,13 +124,13 @@ public class MainActivity extends AppCompatActivity {
     public void dialogTimePicker(View view) {
         Calendar calendar = Calendar.getInstance();
 
-        Format format = new SimpleDateFormat("HH:mm");
-        System.out.println(format.format(calendar.get(Calendar.HOUR_OF_DAY)));
+//        Format format = new SimpleDateFormat("HH:mm");
+//        System.out.println(format.format(calendar.get(Calendar.HOUR_OF_DAY)));
 
         TimePickerDialog dialog = new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                String time = hourOfDay + ":" + minute;
+                String time = hourOfDay + "시 " + minute + "분";
                 ((EditText)findViewById(R.id.editText2)).setText(time);
             }
         }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true);

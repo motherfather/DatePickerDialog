@@ -80,4 +80,31 @@
         android:layout_toRightOf="@+id/textView"
         android:text="종료일" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="66dp"
+        android:text=" ~ " />
+
+    <TextView
+        android:text="시작시간"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_toLeftOf="@+id/textView2"
+        android:layout_toStartOf="@+id/textView2"
+        android:id="@+id/textView_time_start" />
+
+    <TextView
+        android:text="종료시간"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_alignRight="@+id/buttonTimePicker"
+        android:layout_alignEnd="@+id/buttonTimePicker"
+        android:id="@+id/textView_time_end" />
+
 </RelativeLayout>
