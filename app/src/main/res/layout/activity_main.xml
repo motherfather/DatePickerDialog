@@ -7,36 +7,77 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.estsoft.datepickerdialog.MainActivity">
+    tools:context="com.bit2016.datepickerdialog.MainActivity">
 
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DatePicker Dialog"
-        android:id="@+id/buttonDatePicker"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="dialogDatePicker"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TimePicker Dialog"
-        android:id="@+id/buttonTimePicker"
-        android:layout_below="@+id/buttonDatePicker"
-        android:layout_centerHorizontal="true" />
 
     <EditText
+        android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_above="@+id/buttonTimePicker"
-        android:layout_toLeftOf="@+id/buttonDatePicker"
-        android:layout_toStartOf="@+id/buttonDatePicker"
-        android:hint="생년월일"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
+        android:enabled="false"
         android:focusable="false"
-        android:enabled="false" />
+        android:hint="생년월일" />
 
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:enabled="false"
+        android:focusable="false"
+        android:hint="시간" />
+
+    <Button
+        android:id="@+id/buttonTimePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:onClick="dialogTimePicker"
+        android:text="TimePicker Dialog" />
+
+    <Button
+        android:id="@+id/buttonDatePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/buttonTimePicker"
+        android:layout_alignRight="@+id/buttonTimePicker"
+        android:layout_below="@+id/editText"
+        android:layout_marginTop="39dp"
+        android:onClick="dialogDatePicker"
+        android:text="DatePicker Dialog" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonTimePicker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text=" ~ " />
+
+    <TextView
+        android:id="@+id/textView_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_toLeftOf="@+id/textView"
+        android:layout_toStartOf="@+id/textView"
+        android:text="시작일" />
+
+    <TextView
+        android:id="@+id/textView_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:text="종료일" />
 
 </RelativeLayout>
